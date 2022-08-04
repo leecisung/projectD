@@ -1,0 +1,35 @@
+/************************************ Important Style S ************************************/
+    /* color */
+    :root {
+        --border-color: rgba(219,219,219,1);
+        --grey-text: #aaaaaa;
+        --blue-text: #0095F6;
+    }  
+    /* Text */
+    .t-left{text-align:left ! important;}
+    .t-right{text-align:right ! important;}
+    .t-center{text-align:center ! important;}
+    /* Float */
+    .f-left{float:left ! important;}
+    .f-right{float:right ! important;}
+    .f-none{float:none ! important;}
+    .f-clear{clear:both;}
+    /* Position */
+    .p-left{position:absolute ! important;top:0;left:0;}
+    .p-right{position:absolute ! important;top:0;right:0;}
+    .p-none{position:relative ! important;top:0;right:0;}
+    /* Words */
+    .w-keep{word-break:keep-all ! important;}
+    .w-break{word-break:break-all ! important;}
+    /* Display */
+    .d-none{display:none ! important;}
+    .d-block{display:block ! important;}
+    .d-inline{display:inline-block ! important;}
+    /* */
+    .blind{position:absolute;overflow:hidden;clip:rect(0 0 0 0);margin:-1px;width:1px;height:1px}
+    .flex{display:flex;}
+    .show{display:block;}
+    .hide{display:none;}
+    .m-show{display:none;}
+    .m-hide{display:block;}
+    /************************************ Important Style ************************************/

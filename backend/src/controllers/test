@@ -1,0 +1,9 @@
+Request, Response를 담당한다.
+
+Request 데이터를 가공하고, 필요한 service에 데이터를 전달한다
+
+service의 처리에 따라 클라이언트에 Response하는 역할을 담당
+
+비즈니스 로직은 service에게 맡긴다.
+
+HTTP 관련 에러는 여기서 발생시켜야한다
