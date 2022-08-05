@@ -3,26 +3,28 @@
   <div class="message-item">
     <div class="message-cnt">
       <!-- user -->
-      <UserIcon v-if="even" class="online"/>
-      <UserIcon v-else class="offline" />
+      <UserIcon class="online"/>
+      <!-- <UserIcon v-if="even" class="online"/>
+      <UserIcon v-else class="offline" /> -->
       <!-- info-->
       <div class="message-user-info">
         <div class="message-notice">
           <div class="message-notice-top">
             <!-- 닉네임 -->
             <router-link to="/profile">
-              <span class="message-notice-nickname">이찬혁</span>
+              <span class="message-notice-nickname">{{all_chat_data.room_creator}}</span>
             </router-link>
             <!-- 등록지역 -->
-            <span class="message-notice-local">신도림동</span>
+            <span class="message-notice-local">{{all_chat_data.address}}</span>
             <!-- 등록시간 -->
-            <span class="message-notice-time">1분전</span>
+            <span class="message-notice-time">{{all_chat_data.time}}</span>
           </div>
           <div class="message-notice-bottom">
             <!-- 활동코멘트 -->
             <span class="message-notice-commnet">
-              <em v-if="even">연남동 카페에서 봤어요</em>
-              <em v-else >신사동 가게에서 봤어요</em>
+               <em>{{all_chat_data.message}}</em>
+              <!-- <em v-if="even">{{single_data.message}}</em>
+              <em v-else >{{single_data.message}}</em> -->
             </span>
           </div>
         </div>
@@ -30,8 +32,9 @@
     </div>
     <!-- 메시지최신상황 -->
     <div class="new-message">
-      <span v-if="even"></span>
-      <span v-else>New</span>
+      <span></span>
+      <!-- <span v-if="even"></span>
+      <span v-else>New</span> -->
     </div>
   </div>
 
@@ -39,16 +42,37 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 import UserIcon from './UserIcon.vue'
 export default {
   name: 'Conversation',
   components :{ UserIcon },
-  props: {
-    even: {
-      type: Boolean,
-      default: () => false,
+  props: ["post_value"],
+  data : function(){
+      return {
+        all_chat_data:{
+          room_creator:'',
+          paticipant:'',
+          message:'',
+          time:'',
+          address:'',
+          }
+ 
+      }
     },
-  },
+   
+
+    mounted : function(){
+      
+      if(this.post_value){
+        console.log(this.post_value,"in conversation")
+        this.all_chat_data = this.post_value
+
+      
+      }
+      // console.log(this.single_data)
+    }
 }
 </script>
 

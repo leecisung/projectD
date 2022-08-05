@@ -14,10 +14,12 @@ export default {
       map: null,
       markers: [],
       latitude: 0,
-      longitude: 0
+      longitude: 0,
     }
   },
   created() {
+    
+
     if (!("geolocation" in navigator)) {
       return;
     }
@@ -35,7 +37,7 @@ export default {
         const script = document.createElement("script");
         /* global kakao */
         script.onload = () => kakao.maps.load(this.initMap);
-        script.src = "//dapi.kakao.com/v2/maps/sdk.js?autoload=false&appkey=4b9cd5cafac3089948ddbdecdd297204";
+        script.src = "//dapi.kakao.com/v2/maps/sdk.js?autoload=false&appkey=d2e61e40f42b06627f1fc31e50bd55fc";
         document.head.appendChild(script);
       }
 
