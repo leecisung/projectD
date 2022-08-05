@@ -6,25 +6,58 @@
         <div class="img">
           <img src="@/assets/images/bitmaps/profile-image.jpg" alt="">
         </div>
-        <HomeSuggestions/>
+        <HomeSuggestions :suggestions_data="board_info"/>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import HomeSuggestions from './HomeSuggestions.vue'
 export default {
   name: 'PostMoreModal',
   components: {
     HomeSuggestions
-},
+  },
+  props : ["modal_data"],
+  data : function(){
+    return {
+      board_info : {
+        title : '',
+        cost : 0,
+        category : '',
+        content : '',
+        writer : '',
+        picture : '',
+        location : ''
+      }
+    }
+  },
+  computed: {
+    ...mapState({
+      npModalVisible: state => state.header.npModalVisible
+    })
+  },
   methods: {
     setNPModalVisible () {
+      this.$emit('setIndex')
       this.$store.commit('header/setNPModalVisible', false)
     }
+  },
+  mounted : function(){
+    console.log(this.modal_data,"modal.vue")
+    this.board_info = this.modal_data
+    console.log("board info data", this.board_info)
+  },
+  watch : {
+    npModalVisible: function(val) {
+      if (val) {
+        console.log(this.modal_data, ' ssss');
+      }
+    }
   }
-}
+  }
 </script>
 
 <style scoped>

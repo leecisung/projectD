@@ -12,7 +12,8 @@ var indexRouter = require('./src/routes/index');
 // 내가 집어넣은 부분 (다음 한줄)
 var boardRouter = require("./src/routes/user_info")
 var chatroomRouter = require("./src/routes/chatroom")
-var usersRouter = require('./src/routes/users');
+var usersRouter = require('./src/routes/users')
+var profileRouter = require("./src/routes/profile")
 
 var app = express();
 
@@ -60,6 +61,7 @@ app.use('/', indexRouter);
 app.use('/api/board', boardRouter)
 app.use('/api/chat', chatroomRouter)
 app.use('/api/users', usersRouter);
+app.use('/api/profile', profileRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

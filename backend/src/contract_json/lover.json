@@ -1,0 +1,14 @@
+{
+    "title": "love of humanity",
+    "type": "object",
+    "properties": {
+        "name": {
+            "type": "string",
+            "description": "참여상"
+        },
+        "description": {
+            "type": "string",
+            "description": "뜨거운 인류애를 가진 당신에게 참여상을 드립니다."
+        }
+    }
+}

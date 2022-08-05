@@ -5,8 +5,8 @@
       <UserIcon class="lage"/>
       <div class="info">
         <div class="txt-box flex" style="align-items:baseline;">
-          <div class="user-name">이찬혁</div>
-          <div class="txt" style="margin-left:5px;line-height:28px;">서울시 강남</div>
+          <div class="user-name">{{db_profile_data.name}}</div>
+          <div class="txt" style="margin-left:5px;line-height:28px;">{{db_profile_data.address}}</div>
         </div>
         <div class="txt-box flex">
           <router-link class="edit-btn" to="#">Edit Profile</router-link>
@@ -62,7 +62,7 @@
             <div>&bull;&nbsp;게시글</div>  
           </dt>
           <dd class="txt">
-            <div class="num">1<b>건</b></div>
+            <div class="num">{{db_profile_data.write}}<b>건</b></div>
           </dd>
         </dl>
         <dl>
@@ -70,7 +70,7 @@
             <div>&bull;&nbsp;참여글</div>  
           </dt>
           <dd class="txt">
-            <div class="num">88<b>건</b></div>
+            <div class="num">{{db_profile_data.comment}}<b>건</b></div>
           </dd>
         </dl>
         <dl>
@@ -122,14 +122,32 @@ import HesaderSub from "@/components/HesaderSub.vue";
 import Footer from "@/components/Footer.vue";
 import UserIcon from "@/components/UserIcon.vue";
 
+import axios from 'axios'
+
 export default {
   name: "ProfileDetail",
   components: { Highlights, ProfilePostGrids, HesaderSub, Footer, UserIcon },
   data(){
     return{
       title : '내 정보',
+      db_profile_data : {
+        name : '',
+        id : '',
+        address : '',
+        write : 0,
+        comment : 0
+      }
     }
   },
+  created : function(){
+    axios.get('/api/profile/info')
+    .then(
+      (res) => {
+        console.log(JSON.stringify(res.data),'I\"m in Profile.vue')
+        this.db_profile_data = res.data.content[0]
+      }
+    )
+  }
 };
 </script>
 

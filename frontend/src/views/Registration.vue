@@ -23,25 +23,29 @@
                   <legend>분실물등록</legend>
                   <div class="cmm-input">
                       <p class="label">제목</p>
-                      <input type="text" title="ID" placeholder="HelloWorld">
+                      <input type="text" title="제목을 적는 란" placeholder="제목" v-model="board_title">
+                      <!-- <p>{{board_title}}</p> -->
                   </div>
                   <div class="cmm-input">
                       <p class="label">사례금</p>
-                      <input type="text" title="ID" placeholder="HelloWorld">
+                      <input type="number" title="사례 금액을 적는 칸" placeholder="사례 금액" v-model="cost">
                   </div>
                   <div class="cmm-input">
                       <p class="label">상세카테고리</p>
-                      <input type="text" title="ID" placeholder="HelloWorld">
+                      <input type="text" title="카테고리를 적는 칸" placeholder="상세 카테고리" v-model="category">
                   </div>
                   <div class="cmm-input">
                       <p class="label">내용</p>
                       <span class="textarea-box">
-                        <textarea placeholder="HelloWorld" ></textarea>
+                        <textarea placeholder="상세한 내용을 적어주세요" v-model="content" ></textarea>
                       </span>
                   </div>
                   <div class="btn-box">
-                    <button type="button"><span>뒤로가기</span></button>
-                    <button type="button"><span>완료</span></button>
+                    <button type="button" @click="goback"><span>뒤로가기</span></button>
+                    <button type="button" @click="insertdata">
+                      <span>완료</span>
+                      <!-- <router-link to="/home">완료</router-link> -->
+                    </button>
                   </div>
               </fieldset>
           </form>
@@ -55,18 +59,56 @@
 <script>
 import HesaderSub from "@/components/HesaderSub.vue"
 import Footer from '@/components/Footer.vue'
+import axios from "axios"
 
 export default {
   name: 'Registration',
   components: {
     HesaderSub,
     Footer,
-},
-data(){
-    return{
+  },
+  data: function () {
+    return {
       title : '게시물등록',
+      board_title:'',
+      cost : 0,
+      category : '',
+      content : '',
+      writer : "가나다",
+      location : "서울시 강남구"
     }
   },
+  methods : {
+
+    insertdata () {
+      // console.log( this.board_title, "제목")
+      // console.log( this.cost, "사례금")
+      // console.log( this.category, "카테고리")
+      axios.post('/api/board/register',{
+        board_title : this.board_title,
+        cost : this.cost,
+        category : this.category,
+        content : this.content,
+        writer : this.writer,
+        location : this.location
+      }).then(
+        (res) => {
+          if(res){
+            console.log("현재상태 :",res.data.message)
+            this.$router.push("/")
+          }
+        },
+        (err) => {
+          console.log(err, 'vue page error')
+        }
+      )
+    },
+
+    goback () {
+      console.log("goback")
+      this.$router.go(-1)
+    }
+  }
 }
 </script>
 

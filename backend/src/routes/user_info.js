@@ -34,7 +34,7 @@ router.get("/", function(req,res){
 router.get('/content', function(req,res){
     console.log('접속')
     connection.query(
-        `select * from sample_info`,
+        `select * from board`,
         function(err, row){
             if(err){
                 res.json({
@@ -51,4 +51,29 @@ router.get('/content', function(req,res){
         }
     )
   })
+
+router.post("/register",function(req, res){
+    var title = req.body.board_title
+    var cost = req.body.cost
+    var category = req.body.category
+    var content = req.body.content
+    var writer = req.body.writer
+    var location = req.body.location
+
+    connection.query(
+        `insert into board(title, cost, category, content, writer, location) values (?, ?, ?, ?, ?, ?)`,
+        [title, cost, category, content, writer, location],
+        function(err, result){
+            if(err){
+                console.log(err)
+                console.log("SQL insert board error")               
+            }else{
+                console.log("post register complete")
+                res.json({
+                    message : "insert success"
+                })
+            }
+        }
+    )
+})
 module.exports = router
