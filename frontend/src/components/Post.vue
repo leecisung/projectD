@@ -6,7 +6,7 @@
     </div>
     <!-- 등록한 게시물 유저정보-->
     <div class="post-profile">
-      <UserInfoIcon/>
+      <UserInfoIcon :userinfoicon_value="post_value"/>
       <button class="more-btn">
         <span>
           <i class="fa-solid fa-ellipsis"></i>
@@ -44,7 +44,7 @@
         </button>
       </div>
     </div>
-    <PostMoreModal v-show="npModalVisible"/>
+    <PostMoreModal v-if="npModalVisible && choiceId === contents_id" :modal_data="post_value" @setIndex="setIndex" />
   </div>
 </template>
 
@@ -53,6 +53,7 @@ import { mapState } from 'vuex'
 import UserInfoIcon from './UserInfoIcon.vue'
 import PostImage from './PostImage.vue'
 import PostMoreModal from './PostMoreModal.vue'
+// import axios from 'axios'
 export default {
   name: 'Post',
   components: { UserInfoIcon, PostImage, PostMoreModal },
@@ -61,15 +62,24 @@ export default {
       npModalVisible: state => state.header.npModalVisible
     })
   },
+  props : ["post_value", "contents_id"],
   data() {
     return {
-      commentText: ''
+      commentText: '',
+      choiceId: null
     }
   },
   methods: {
     setNPModalVisible () {
+      this.choiceId = this.contents_id;
       this.$store.commit('header/setNPModalVisible', !this.npModalVisible)
+    },
+    setIndex () {
+      this.choiceId = null
     }
+  },
+  mounted : function(){
+    console.log(this.post_value, ' index: ', this.contents_id, 'POST.VUE')
   }
 }
 </script>
@@ -100,3 +110,11 @@ export default {
     .post{width:100%;}
   }
 </style>
+
+
+
+
+
+
+
+

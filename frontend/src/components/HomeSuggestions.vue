@@ -7,7 +7,8 @@
         <div class="about">
           <!-- 화면 분할 고민-->
           <div class="names">
-            <p>이찬혁</p>
+            <!-- <p>이찬혁</p> -->
+            <p>{{suggestions_data.writer}}</p>
             <p>힙합은 안 멋져</p>
           </div>
         </div>
@@ -15,23 +16,21 @@
       <div class="txt-box">
         <P class="tit">상세정보</P>
         <p class="txt">
-          <span>서울시강남구서초동</span>
-          <span>13분전</span>
+          <!-- <span>서울시강남구서초동</span> -->
+          <span>분실 위치 : {{suggestions_data.location}}</span>
+          <!-- <span>13분전</span> -->
         </p>
         <p class="txt">
-          <span>분실물</span>
-          <span>지갑</span>
-          <span>50000원</span>
+          <span>분실물 : {{suggestions_data.category}}</span><br>
+          <!-- <span>지갑</span> -->
+          <!-- <span>{{suggestions_data.category}}</span><br> -->
+          <span>사례금 : {{suggestions_data.cost}}</span>
         </p>
-        <p class="txt">
+        <!-- <p class="txt">
           <span>01일 03일 37분 42초 남음</span>
-        </p>
+        </p> -->
         <P class="tit mt-5">지갑찾아요</P>
-        <textarea readonly>
-        방금 두산아트센터 연강홀에서 근처에서
-        검은색 손바닥 크기 가죽지갑 분실 했습니다ㅠㅜ
-        안에 너무 소중한 학생증 굿즈가 들어 있습니다..
-        혹시 발견 하셨다면 연락 부탁드립니다!ㅠㅠㅠㅠ
+        <textarea readonly v-model="suggestions_data.content">
         </textarea>
       </div>
     </div>
@@ -76,6 +75,10 @@ import UserIcon from './UserIcon.vue'
 export default {
   components: { FollowUserInfoIcon, UserIcon, },
   name: 'HomeSuggestions',
+  props : ["suggestions_data"],
+  mounted : function() {
+    console.log(this.suggestions_data,'suggestions vue')
+  }
 }
 </script>
 
