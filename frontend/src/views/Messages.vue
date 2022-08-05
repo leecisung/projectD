@@ -9,7 +9,8 @@
           <!-- 메시지목록 -->
           <div class="conversations">
             <router-link to='/messages/Messagesdetail'>
-              <Conversation v-for="conversation in 20" :key="conversation" :even="conversation % 2 === 0" />
+              <Conversation v-for="conversation in all_chat_data" v-bind:post_value="conversation"/>
+              <!-- <Conversation v-bind:post_value="all_chat_data" v-for="conversation in all_chat_data"  /> -->
             </router-link>
           </div>
         </div>
@@ -23,6 +24,7 @@
 import Conversation from "@/components/Conversation.vue";
 import HesaderSub from "@/components/HesaderSub.vue";
 import Footer from "../components/Footer";
+import axios from 'axios'
 export default {
   name: 'Messages',
   components:{
@@ -30,12 +32,30 @@ export default {
     HesaderSub,
     Footer
   },
-  data(){
-    return{
-      title : '메시지',
+  
+  data() {
+    return {
+      all_chat_data:[], //바깥에 리스트형이기 때문에 꼭 이렇게
+
     }
   },
+
+  created : function(){
+
+        // axios.get("/api/chat/list").then((res) => {
+        // console.log(JSON.stringify(res.data.content))
+        // this.all_chat_data = JSON.stringify(res.data.content)
+
+    axios.get("/api/chat/list").then((response) => {
+    
+          this.all_chat_data = response.data.content
+          console.log(this.all_chat_data,'in message')
+      }
+    )
+
+  }
 }
+
 </script>
 
 <style scoped>

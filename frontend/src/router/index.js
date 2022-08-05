@@ -4,7 +4,10 @@ import Main from '../views/Main.vue'
 import About from '../views/About.vue'
 import Activity from '../views/Activity.vue'
 import Explore from '../views/Explore.vue'
-import Login from '../views/Login.vue'
+
+import Login from '../components/Login.vue'
+import SignUp from '../components/SignUp.vue'
+
 import Messages from '../views/Messages.vue'
 import MessagesDetail from '../views/MessagesDetail.vue'
 import Post from '../views/Post.vue'
@@ -15,6 +18,7 @@ import ProfilePostGrids from '../components/ProfilePostGrids.vue'
 import ProfileSaved from '../components/ProfileSaved.vue'
 import MovieIndexPage from '../views/MovieIndexPage'
 import MovieDetailPage from '../views/MovieDetailPage'
+
 
 const routes = [
   {
@@ -42,11 +46,20 @@ const routes = [
     name: 'explore',
     component: Explore
   },
+
+
   {
     path: '/login',
     name: 'login',
     component: Login
   },
+  {
+    path: '/signUp',
+    name: 'signUp',
+    component: SignUp
+  },
+
+
   {
     path: '/messages',
     name: 'messages',
