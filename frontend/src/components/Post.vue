@@ -2,7 +2,7 @@
   <div class="post">
     <!-- 등록한 게시물 이미지-->
     <div class="post-media">
-      <PostImage/>
+      <PostImage :postimage_value="post_value"/>
     </div>
     <!-- 등록한 게시물 유저정보-->
     <div class="post-profile">

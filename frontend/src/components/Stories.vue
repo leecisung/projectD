@@ -3,18 +3,34 @@
     <P class="tit">최근 업데이트</P>
     <!-- 추후에 슬라이드/캐러셀로 업데이트-->
     <div class="stories-cnt">
-      <StoryCircle v-for="(circle, id) in 16" :key="id" />
+      <StoryCircle v-for="content in all_board_data" :each_story="content" />
     </div>
   </div>
 </template>
 
 <script>
 import StoryCircle from './StoryCircle'
+import axios from 'axios'
 export default {
   name: 'Stories',
   components: {
     StoryCircle,
   },
+  data() {
+    return {
+      all_board_data : []
+    }
+  },
+  created : function() {
+    axios.get("/api/board/latest")
+    .then(
+      (res) => {
+        // console.log(JSON.stringify(res.data.content)+"나 지금 stories.vue")
+        // console.log(res.data.content)
+        this.all_board_data = res.data.content
+      }
+    )
+  }
 }
 </script>
 
