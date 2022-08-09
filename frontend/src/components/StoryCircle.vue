@@ -2,7 +2,7 @@
   <div class="story-circle">
     <UserIcon class="circle"/>
     <div class="post">
-      <p>찾아요/지갑</p>
+      <p>찾아요/{{category}}</p>
     </div>
   </div>
 </template>
@@ -12,6 +12,16 @@ import UserIcon from './UserIcon.vue'
 export default {
   name: 'StoryCircle',
   components : {UserIcon},
+  props : ["each_story"],
+  data() {
+    return {
+      category : '',
+    }
+  },
+  created: function() {
+    // console.log(this.each_story,"this is story Circle")
+    this.category = this.each_story.category
+  }
 }
 </script>
 
