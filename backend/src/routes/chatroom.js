@@ -22,7 +22,7 @@ connection.connect(function(err){
 
 router.get("/", function(req,res){
     connection.query(
-        `select * from user`,
+        `select * from users`,
         function(err, rows){
             if(err) throw err
             res.send(rows)
