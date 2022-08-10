@@ -18,6 +18,14 @@
         </div>
       </div>
     </div>
+
+    <div class="wallet">
+      <p class="tit">지갑 정보</p>
+      <div class="wallet-box">
+        <input type="text" value="지갑주소"/>
+        <button type="button"><span>wallet</span></button>
+      </div>
+    </div>
         
     <div class="user-info money">
       <P></P>
@@ -185,7 +193,11 @@ export default {
   .user-stat{margin-right:40px;}
   .user-stat div.num{position:relative;overflow:hidden;text-overflow:ellipsis;}
 
-  
+  .wallet{max-width:680px;margin:20px auto 40px;padding:0 20px;box-sizing:border-box;}
+  .wallet .tit{margin-bottom:10px;padding:0 10px;font-size:18px;font-weight:600;}
+  .wallet .wallet-box input{padding:10px 20px;width:calc(100% - 120px);font-size:14px;color:#666;border:2px dotted var(--border-color);border-radius:20px;box-sizing:border-box;}
+  .wallet .wallet-box button span{display:inline-block;margin-left:10px;padding:10px 20px;font-size:15px;color:#fff;background-color:#999;}
+  .wallet .wallet-box button span:hover{background-color:#888;}
 
 /* User Content */
 .user-content{width:100%;}
