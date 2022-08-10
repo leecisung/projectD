@@ -4,16 +4,15 @@ import Main from '../views/Main.vue'
 import About from '../views/About.vue'
 import Activity from '../views/Activity.vue'
 import Explore from '../views/Explore.vue'
-
-import Login from '../components/Login.vue'
-import SignUp from '../components/SignUp.vue'
-
+import Login from '../views/Login.vue'
+import SignUp from '../views/SignUp.vue'
 import Messages from '../views/Messages.vue'
 import MessagesDetail from '../views/MessagesDetail.vue'
 import Post from '../views/Post.vue'
 import Profile from '../views/Profile.vue'
 import Registration from '../views/Registration.vue'
 import Search from '../views/Search.vue'
+import Wallet from '../views/Wallet.vue'
 import ProfilePostGrids from '../components/ProfilePostGrids.vue'
 import ProfileSaved from '../components/ProfileSaved.vue'
 import MovieIndexPage from '../views/MovieIndexPage'
@@ -46,8 +45,6 @@ const routes = [
     name: 'explore',
     component: Explore
   },
-
-
   {
     path: '/login',
     name: 'login',
@@ -58,8 +55,6 @@ const routes = [
     name: 'signUp',
     component: SignUp
   },
-
-
   {
     path: '/messages',
     name: 'messages',
@@ -105,6 +100,11 @@ const routes = [
     path: '/search',
     name: 'search',
     component: Search
+  },
+  {
+    path: '/wallet',
+    name: 'wallet',
+    component: Wallet
   },
   {
     path: '/movieindexpage',
