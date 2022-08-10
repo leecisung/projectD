@@ -42,14 +42,14 @@
             <i class="fa-brands fa-bitcoin"></i>
           </div>
           <div>토큰</div>  
-          <div class="num"><b>88</b></div>
+          <div class="num"><b>2</b></div>
         </div>
         <div class="user-stat">
           <div class="ico" style="color:#F37878;">
             <i class="fa-solid fa-coins"></i>
           </div>
           <div>포인트</div>  
-          <div class="num"><b>888</b></div>
+          <div class="num"><b>2</b></div>
         </div>
       </div>
     </div>
@@ -86,7 +86,7 @@
             <div>&bull;&nbsp;완료</div>  
           </dt>
           <dd class="txt">
-            <div class="num">888<b>건</b></div>
+            <div class="num">1<b>건</b></div>
           </dd>
         </dl>
       </div>

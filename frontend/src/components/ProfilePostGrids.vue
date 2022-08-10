@@ -1,6 +1,6 @@
 <template>
   <div class="flex">
-    <PostGrid v-for="post in 8" :class="{third: post % 3 === 0}" :key="post" />
+    <PostGrid v-for="post in 1" :class="{third: post % 3 === 0}" :key="post" />
   </div>
 </template>
 

@@ -2,7 +2,7 @@
   <div :class="{'post-grid': true, 'bigger-grid': size === 'x2' }">
     <!-- 이미지 -->
     <div class="image">
-      <img src="@/assets/images/bitmaps/profile-image.jpg" alt="">
+      <img src="http://localhost:3000/img/chunsik5.jpg" alt="">
     </div>
     <!-- 이미지 오버레이 -->
     <div class="image-overlay">

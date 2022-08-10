@@ -4,7 +4,7 @@
     <div class="modal-cont">
       <div class="box">
         <div class="img">
-          <img src="@/assets/images/bitmaps/profile-image.jpg" alt="">
+          <img src="@\assets\images\bitmaps\profile-image.jpg" alt="">
         </div>
         <HomeSuggestions :suggestions_data="board_info"/>
       </div>

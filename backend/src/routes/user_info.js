@@ -71,10 +71,11 @@ router.post("/register",function(req, res){
     var content = req.body.content
     var writer = req.body.writer
     var location = req.body.location
+    var picture = req.body.picture
 
     connection.query(
-        `insert into board(title, cost, category, content, writer, location) values (?, ?, ?, ?, ?, ?)`,
-        [title, cost, category, content, writer, location],
+        `insert into board(title, cost, category, content, writer, location, picture) values (?, ?, ?, ?, ?, ?, ?)`,
+        [title, cost, category, content, writer, location, picture],
         function(err, result){
             if(err){
                 console.log(err)

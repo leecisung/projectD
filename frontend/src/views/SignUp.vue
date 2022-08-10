@@ -1,4 +1,5 @@
 <template>
+  <hesader-sub :title="title"/>
   <div id="login-wrap">
     <div class="login-cnt">
       <div class="login-box">
@@ -10,32 +11,24 @@
           <img src="@/assets/images/bitmaps/logo-txt.png" alt="deep txt"/>
         </div>
       </div>
-      <!--
-      <div class="btn-box">
-        <router-link class="kakao-login" to="/">
-          <button type="button" @click="kakaoLogin">
-            <span>
-              <img
-                src="@/assets/images/bitmaps/kakao_login_medium_wide.png"
-                alt=" 카카오톡 로그인"
-              />
-            </span>
-          </button>
-        </router-link>
-      </div>
-      -->
       <div class="form-box">
-        <LoginvView/>
+        <SignUpView/>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import LoginvView from "../components/Login";
+import HesaderSub from '../components/HesaderSub.vue';
+import SignUpView from "../components/SignUp";
 export default {
-    name: "Login",
-    components: { LoginvView },
+    name: "SignUp",
+    components: { HesaderSub, SignUpView },
+    data(){
+      return{
+        title : '회원가입',
+      }
+    }
 };
 </script>
 

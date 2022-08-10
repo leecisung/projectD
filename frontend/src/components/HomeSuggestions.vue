@@ -40,11 +40,11 @@
           참여자목록
         </span>
         <span class="see-all">
-          10명
+          2명
         </span>
       </div>
       <div class="suggestions-body">>
-        <FollowUserInfoIcon v-for="user in 10" :key="user" />
+        <FollowUserInfoIcon v-for="user in 2" :key="user" />
       </div>
     </div>
     <div class="link-site">
